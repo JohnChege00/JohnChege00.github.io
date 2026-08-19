@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="John Chege developer mark">
+  <rect width="64" height="64" fill="#14110F"/>
+  <path d="M14 20 L28 32 L14 44" fill="none" stroke="#D62828" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <rect x="34" y="38" width="16" height="6" fill="#F5F3EF"/>
+</svg>
