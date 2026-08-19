@@ -7,14 +7,12 @@
 <meta name="description" content="John Chege is a Kenyan web developer studying BSc Information Technology at Machakos University, building web systems with experience in IT support, networking and data analytics.">
 <link rel="canonical" href="https://JohnChege00.github.io/">
 
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="John Chege, Web Developer in Kenya">
 <meta property="og:description" content="Kenyan web developer building web systems, with experience in IT support, networking, infrastructure and data analytics.">
 <meta property="og:url" content="https://JohnChege00.github.io/">
 <meta property="og:site_name" content="John Chege">
 <meta property="og:image" content="https://JohnChege00.github.io/assets/images/og-cover.png">
-
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="John Chege, Web Developer in Kenya">
@@ -94,7 +92,6 @@
 
 <main id="main">
 
-  
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -129,7 +126,6 @@
     </div>
   </section>
 
-  
   <section class="section" aria-labelledby="selected-projects-h">
     <div class="wrap">
       <div class="section-head">
@@ -159,7 +155,6 @@
     </div>
   </section>
 
-  
   <section class="section" style="border-top:1px solid var(--line)">
     <div class="wrap about-grid">
       <div class="about-copy">
@@ -189,7 +184,6 @@
     </div>
   </section>
 
-  
   <section class="section" style="border-top:1px solid var(--line)">
     <div class="wrap">
       <div class="section-head">
@@ -213,7 +207,6 @@
     </div>
   </section>
 
-  
   <section class="section" id="skills" style="border-top:1px solid var(--line)">
     <div class="wrap">
       <div class="section-head">
@@ -348,7 +341,6 @@
     </div>
   </section>
 
-  
   <section class="section contact-section" style="border-top:1px solid var(--line)" id="contact">
     <div class="wrap">
       <div class="section-head">
@@ -387,7 +379,7 @@
         </div>
         <div class="contact-note-panel">
           <h3>Open to internships, attachments and freelance work</h3>
-          <p>I'm currently studying at Machakos University and building web projects on the side. If you have a role, attachment opportunity or freelance project that needs a web developer, reach out by email or WhatsApp and I'll get back to you.</p>
+          <p>I'm currently studying at Machakos University and building web projects on the side. If you have a role, internship opportunity or freelance project that needs a web developer, IT Support, Web Content Management skills, , network administration skills, reach out by email or WhatsApp and I'll get back to you.</p>
         </div>
       </div>
     </div>
@@ -431,7 +423,7 @@
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© <span data-year>2026</span> John Chege. All rights reserved.</span>
+    <span>© <span id="current-year"></span> John Chege. All rights reserved.</span>
     <span>Built with HTML, CSS and JavaScript.</span>
   </div>
 </footer>
@@ -439,5 +431,13 @@
 <script src="data/config.js"></script>
 <script src="data/projects.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    });
+</script>
 </body>
 </html>
