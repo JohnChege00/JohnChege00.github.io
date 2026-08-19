@@ -26,26 +26,36 @@
 
 <style>
 .project-preview-card {
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: var(--white);
+  text-decoration: none;
+  color: var(--black);
+  transition: transform var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+
+.project-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(20, 17, 15, 0.08);
 }
 
 .project-preview-card .project-image-wrapper {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  border-radius: var(--radius-s);
-  margin-bottom: 14px;
   background: var(--white-dim);
   position: relative;
+  flex-shrink: 0;
 }
 
 .project-preview-card .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -56,7 +66,6 @@
 .project-preview-card .project-image-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--white-dim);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +73,69 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   border: 1px dashed var(--line-strong);
+  background: var(--white-dim);
+}
+
+.project-preview-card .project-content {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-preview-card .idx {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--red-dark);
+  margin-bottom: 6px;
+}
+
+.project-preview-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project-preview-card p {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.project-preview-card .tag-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-preview-card .tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  border: 1px solid var(--line-strong);
+  padding: 3px 8px;
+  border-radius: var(--radius-s);
+  color: var(--ink-soft);
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: var(--white);
+}
+
+.project-preview-card .tag img,
+.project-preview-card .tag svg {
+  width: 12px !important;
+  height: 12px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+.project-preview-card .tag i {
+  font-size: 11px !important;
+  width: 12px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
 }
 
 .back-to-top {
@@ -112,6 +184,12 @@
 @media (max-width: 768px) {
   .project-preview-card .project-image-wrapper {
     height: 160px;
+  }
+  .project-preview-card .project-content {
+    padding: 16px 18px 20px;
+  }
+  .project-preview-card h3 {
+    font-size: 1.05rem;
   }
 }
 </style>
@@ -468,7 +546,6 @@
 
 <script src="/data/config.js"></script>
 <script src="/data/projects.js"></script>
-<script src="/assets/js/main.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -496,18 +573,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (container && window.PROJECTS) {
         var featured = window.PROJECTS.filter(function(p) { return p.featured === true; });
         var html = '';
+
         featured.forEach(function(project, index) {
             var num = String(index + 1).padStart(2, '0');
             var imagePath = '/assets/images/projects/' + project.slug + '.png';
+
             html += '<a class="project-preview-card" href="' + project.caseStudyUrl + '">';
             html += '<div class="project-image-wrapper">';
-            html += '<img class="project-image" src="' + imagePath + '" alt="' + project.name + '" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML=\'<div class=\\\\'project-image-placeholder\\\\'>📷 ' + project.name + '</div>\'">';
+            html += '<img class="project-image" src="' + imagePath + '" alt="' + project.name + '" loading="lazy" decoding="async">';
             html += '</div>';
+            html += '<div class="project-content">';
             html += '<span class="idx">' + num + '</span>';
             html += '<h3>' + project.name + '</h3>';
             html += '<p>' + project.tagline + '</p>';
             html += '<div class="tag-row">';
-            if (project.tags) {
+
+            if (project.tags && project.tags.length > 0) {
                 project.tags.forEach(function(tag) {
                     var iconMap = {
                         "Node.js": "https://cdn.simpleicons.org/nodedotjs/339933",
@@ -532,26 +613,40 @@ document.addEventListener('DOMContentLoaded', function() {
                         "Financial Reporting": "fa-chart-bar"
                     };
                     var icon = iconMap[tag] || "fa-code";
-                    
+
                     if (icon === "burpsuite") {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="fill:#FF6B00"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg> ' + tag + '</span>';
+                        html += '<span class="tag"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="fill:#FF6B00"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg> ' + tag + '</span>';
                     } else if (icon === "css3") {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="12" height="12"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg> ' + tag + '</span>';
+                        html += '<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="10" height="10"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg> ' + tag + '</span>';
                     } else if (icon === "microsoftexcel") {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><i class="fa-solid fa-file-excel" style="color:#217346;font-size:12px"></i> ' + tag + '</span>';
+                        html += '<span class="tag"><i class="fa-solid fa-file-excel" style="color:#217346;font-size:10px"></i> ' + tag + '</span>';
                     } else if (icon.startsWith('http')) {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><img src="' + icon + '" alt="" width="12" height="12" loading="lazy"> ' + tag + '</span>';
+                        html += '<span class="tag"><img src="' + icon + '" alt="" width="10" height="10" loading="lazy"> ' + tag + '</span>';
                     } else if (icon.startsWith('fa-')) {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><i class="fas ' + icon + '" style="color:#D62828;font-size:12px"></i> ' + tag + '</span>';
+                        html += '<span class="tag"><i class="fas ' + icon + '" style="color:#D62828;font-size:10px"></i> ' + tag + '</span>';
                     } else {
-                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"> ' + tag + '</span>';
+                        html += '<span class="tag">' + tag + '</span>';
                     }
                 });
             }
+
+            html += '</div>';
             html += '</div>';
             html += '</a>';
         });
+
         container.innerHTML = html;
+
+        container.querySelectorAll('.project-image').forEach(function(img) {
+            img.addEventListener('error', function() {
+                var name = img.getAttribute('alt') || '';
+                img.parentElement.innerHTML = '<div class="project-image-placeholder">📷 ' + name + '</div>';
+            }, { once: true });
+        });
+    } else {
+        if (container) {
+            container.innerHTML = '<p style="padding:20px;text-align:center;color:var(--ink-soft)">No projects found.</p>';
+        }
     }
 });
 </script>
