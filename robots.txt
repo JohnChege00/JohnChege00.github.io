@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://JohnChege00.github.io/sitemap.xml
+Sitemap: https://johnchege00.github.io/sitemap.xml
