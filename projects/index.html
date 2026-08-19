@@ -1,24 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="canonical" href="https://JohnChege00.github.io/projects">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects - John Chege, Web Developer</title>
 <meta name="description" content="Case studies of John Chege's web development projects, including a student clearance system, a Kenyan digital publication, an agency site and an Excel-based school finance workbook.">
-<link rel="canonical" href="https://JohnChege00.github.io/projects.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projects, John Chege">
 <meta property="og:description" content="Case studies covering a student clearance system, a digital publication platform, an agency site and a school finance workbook.">
-<meta property="og:url" content="https://JohnChege00.github.io/projects.html">
+<meta property="og:url" content="https://JohnChege00.github.io/projects">
 <meta property="og:site_name" content="John Chege">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Projects, John Chege">
 <meta name="twitter:description" content="Case studies covering a student clearance system, a digital publication platform, an agency site and a school finance workbook.">
 
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<style>
+.case-study {
+  border: 1px solid var(--line-strong);
+  margin-bottom: 40px;
+  scroll-margin-top: 90px;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--white);
+  transition: transform var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+
+.case-study:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(20, 17, 15, 0.08);
+}
+
+.case-study.is-major {
+  border-color: var(--black);
+}
+
+.case-study .case-image-wrapper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--white-dim);
+  position: relative;
+}
+
+.case-study .case-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.case-study:hover .case-image {
+  transform: scale(1.02);
+}
+
+.case-study .case-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border: 1px dashed var(--line-strong);
+  background: var(--white-dim);
+}
+
+.case-header {
+  padding: 26px clamp(20px, 4vw, 36px);
+  border-bottom: 1px solid var(--line-strong);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.case-header h3 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  margin-bottom: 8px;
+}
+
+.case-tagline {
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.case-header-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.case-body {
+  padding: clamp(20px, 4vw, 36px);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+@media (max-width: 780px) {
+  .case-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-block + .case-block {
+  margin-top: 24px;
+}
+
+.case-block h4 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--red-dark);
+  margin-bottom: 10px;
+}
+
+.case-block p {
+  font-size: 0.98rem;
+}
+
+.case-block ul {
+  display: grid;
+  gap: 8px;
+}
+
+.case-block li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 0.96rem;
+}
+
+.case-block li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+}
+
+.stack-panel {
+  border: 1px solid var(--line-strong);
+  padding: 18px;
+  align-self: start;
+  position: sticky;
+  top: 90px;
+}
+
+.stack-panel h4 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.stack-panel .tag-row {
+  margin-top: 0;
+}
+
+.tech-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 12px !important;
+  background: #f5f5f5 !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.tech-tag i {
+  font-size: 0.9rem !important;
+  width: 16px !important;
+}
+
+.tech-tag img {
+  width: 16px !important;
+  height: 16px !important;
+  display: inline-block !important;
+}
+
+.tech-tag svg {
+  width: 16px !important;
+  height: 16px !important;
+  display: inline-block !important;
+}
+
+.tag-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  z-index: 999;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 40, 40, 0.4);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--white);
+}
+
+@media (max-width: 768px) {
+  .case-study .case-image-wrapper {
+    aspect-ratio: 4/3;
+  }
+}
+</style>
 
 <script type="application/ld+json">
 {
@@ -26,7 +266,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://JohnChege00.github.io/"},
-    {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://JohnChege00.github.io/projects.html"}
+    {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://JohnChege00.github.io/projects"}
   ]
 }
 </script>
@@ -36,7 +276,7 @@
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="John Chege, home">
+    <a class="brand" href="/" aria-label="John Chege, home">
       <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
         <rect width="64" height="64" fill="#14110F"/>
         <path d="M14 20 L28 32 L14 44" fill="none" stroke="#D62828" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
@@ -46,16 +286,16 @@
     </a>
     <nav class="nav-primary" data-nav-primary aria-label="Primary">
       <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="projects.html" aria-current="page">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/experience">Experience</a></li>
+        <li><a href="/#skills">Skills</a></li>
+        <li><a href="/projects" aria-current="page">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-outline icon-only-mobile" href="contact.html">Contact Me</a>
+      <a class="btn btn-outline icon-only-mobile" href="/contact">Contact Me</a>
       <button class="nav-toggle" data-nav-toggle type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -76,8 +316,10 @@
   <section class="section">
     <div class="wrap">
 
-      
       <article class="case-study is-major" id="student-clearance-system">
+        <div class="case-image-wrapper">
+          <img class="case-image" src="/assets/images/projects/student-clearance-system.png" alt="Enhanced Online Student Clearance System" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>📷 Student Clearance System</div>'">
+        </div>
         <header class="case-header">
           <div>
             <span class="meta-strip" style="margin-bottom:8px"><span>01 / My final year project</span></span>
@@ -115,24 +357,15 @@
           </div>
           <aside class="stack-panel">
             <h4>Technology stack</h4>
-            <div class="tag-row">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">EJS</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">OCR</span>
-              <span class="tag">QR Verification</span>
-              <span class="tag">Audit Logging</span>
-            </div>
+            <div class="tag-row"></div>
           </aside>
         </div>
       </article>
 
-      
       <article class="case-study is-major" id="trendingbriefings">
+        <div class="case-image-wrapper">
+          <img class="case-image" src="/assets/images/projects/trendingbriefings.png" alt="TrendingBriefings" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>📷 TrendingBriefings</div>'">
+        </div>
         <header class="case-header">
           <div>
             <span class="meta-strip" style="margin-bottom:8px"><span>02 / major project</span></span>
@@ -166,23 +399,15 @@
           </div>
           <aside class="stack-panel">
             <h4>Technology stack</h4>
-            <div class="tag-row">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">EJS</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">TinyMCE</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">SEO</span>
-            </div>
+            <div class="tag-row"></div>
           </aside>
         </div>
       </article>
 
-      
       <article class="case-study is-major" id="vulnerability-scanner">
+        <div class="case-image-wrapper">
+          <img class="case-image" src="/assets/images/projects/vulnerability-scanner.png" alt="Vulnerability Scanner" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>📷 Vulnerability Scanner</div>'">
+        </div>
         <header class="case-header">
           <div>
             <span class="meta-strip" style="margin-bottom:8px"><span>03 / major project</span></span>
@@ -221,20 +446,15 @@
           </div>
           <aside class="stack-panel">
             <h4>Technology stack</h4>
-            <div class="tag-row">
-              <span class="tag">Python</span>
-              <span class="tag">SQL Injection Testing</span>
-              <span class="tag">JWT Security</span>
-              <span class="tag">Secrets Detection</span>
-              <span class="tag">API Discovery</span>
-              <span class="tag">Load Testing</span>
-            </div>
+            <div class="tag-row"></div>
           </aside>
         </div>
       </article>
 
-      
       <article class="case-study" id="vifinity">
+        <div class="case-image-wrapper">
+          <img class="case-image" src="/assets/images/projects/vifinity.png" alt="Vifinity" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>📷 Vifinity</div>'">
+        </div>
         <header class="case-header">
           <div>
             <span class="meta-strip" style="margin-bottom:8px"><span>04</span></span>
@@ -259,21 +479,15 @@
           </div>
           <aside class="stack-panel">
             <h4>Technology stack</h4>
-            <div class="tag-row">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">EJS</span>
-              <span class="tag">Responsive Design</span>
-              <span class="tag">SEO</span>
-            </div>
+            <div class="tag-row"></div>
           </aside>
         </div>
       </article>
 
-      
       <article class="case-study" id="school-finance-workbook">
+        <div class="case-image-wrapper">
+          <img class="case-image" src="/assets/images/projects/school-finance-workbook.png" alt="Kenyan School Finance and Academic Management Workbook" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>📷 School Finance Workbook</div>'">
+        </div>
         <header class="case-header">
           <div>
             <span class="meta-strip" style="margin-bottom:8px"><span>05</span></span>
@@ -303,13 +517,7 @@
           </div>
           <aside class="stack-panel">
             <h4>Technology stack</h4>
-            <div class="tag-row">
-              <span class="tag">Microsoft Excel</span>
-              <span class="tag">Advanced Formulas</span>
-              <span class="tag">Data Validation</span>
-              <span class="tag">Conditional Formatting</span>
-              <span class="tag">Financial Reporting</span>
-            </div>
+            <div class="tag-row"></div>
           </aside>
         </div>
       </article>
@@ -321,7 +529,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <a class="footer-brand" href="index.html">
+      <a class="footer-brand" href="/">
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
           <rect width="64" height="64" fill="#14110F"/>
           <path d="M14 20 L28 32 L14 44" fill="none" stroke="#D62828" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
@@ -329,16 +537,16 @@
         </svg>
         John Chege
       </a>
-      <p class="footer-desc">Building web systems with a background in IT support, networking and data.</p>
+      <p class="footer-desc">I am open to jobs across Web Development, IT Support, Networking, and Data Analytics. <a href="/contact" style="color:#D62828;text-decoration:underline;font-weight:500;">Contact for hiring or inquiry →</a></p>
     </div>
     <div>
       <div class="footer-heading">Navigate</div>
       <nav class="footer-links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/experience">Experience</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
     <div>
@@ -346,7 +554,7 @@
       <p class="footer-desc" style="margin-bottom:14px"><a data-email href="mailto:johnchegegathu99@gmail.com" style="color:var(--white)">johnchegegathu99@gmail.com</a><br><a data-phone href="tel:+254111671646" style="color:var(--white)">0111 671 646</a></p>
       <div class="footer-social">
         <a data-social="github" href="https://github.com/JohnChege00" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/F5F3EF" alt="" width="18" height="18" loading="lazy"></a>
-        <a data-social="linkedin" href="https://www.linkedin.com/in/John-Chege/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="" width="18" height="18" loading="lazy"></a>
+        <a data-social="linkedin" href="https://www.linkedin.com/in/John-Chege/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="color:#0A66C2;font-size:18px"></i></a>
         <a data-social="x" href="https://x.com/J0hn_Chege" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://cdn.simpleicons.org/x/F5F3EF" alt="" width="18" height="18" loading="lazy"></a>
         <a data-social="facebook" href="https://www.facebook.com/JohnChege" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="18" height="18" loading="lazy"></a>
         <a data-social="whatsapp" href="https://wa.me/254111671646" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="18" height="18" loading="lazy"></a>
@@ -359,7 +567,78 @@
   </div>
 </footer>
 
-<script src="data/config.js"></script>
-<script src="assets/js/main.js"></script>
+<a href="#" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script src="/data/config.js"></script>
+<script src="/data/projects.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    var backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    function renderTechTags(tags, techIcons, techColors) {
+        if (!tags) return '';
+        return tags.map(function(tag) {
+            var iconName = techIcons && techIcons[tag] ? techIcons[tag] : 'fa-code';
+            var color = techColors && techColors[tag] ? techColors[tag] : '#D62828';
+            
+            if (iconName && !iconName.startsWith('fa-')) {
+                if (iconName === 'burpsuite') {
+                    return '<span class="tag tech-tag"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:' + color + '"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg> ' + tag + '</span>';
+                } else if (iconName === 'css3') {
+                    return '<span class="tag tech-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="16" height="16"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg> ' + tag + '</span>';
+                } else if (iconName === 'microsoftexcel') {
+                    return '<span class="tag tech-tag"><i class="fa-solid fa-file-excel" style="color:#217346"></i> ' + tag + '</span>';
+                } else {
+                    return '<span class="tag tech-tag"><img src="https://cdn.simpleicons.org/' + iconName + '/' + color.replace('#', '') + '" alt="' + tag + '" width="16" height="16" loading="lazy"> ' + tag + '</span>';
+                }
+            } else {
+                return '<span class="tag tech-tag"><i class="fas ' + iconName + '" style="color:' + color + '"></i> ' + tag + '</span>';
+            }
+        }).join(' ');
+    }
+    
+    var projectArticles = document.querySelectorAll('.case-study');
+    projectArticles.forEach(function(article) {
+        var id = article.id;
+        if (id && window.PROJECTS) {
+            var project = window.PROJECTS.find(function(p) { return p.slug === id; });
+            if (project) {
+                var stackPanel = article.querySelector('.stack-panel .tag-row');
+                if (stackPanel) {
+                    var tags = project.tags || [];
+                    var techIcons = project.techIcons || {};
+                    var techColors = project.techColors || {};
+                    stackPanel.innerHTML = renderTechTags(tags, techIcons, techColors);
+                }
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>

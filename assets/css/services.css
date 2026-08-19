@@ -1,0 +1,115 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  padding: 28px 24px;
+  transition: transform var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-2) var(--ease);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(20, 17, 15, 0.08);
+}
+
+.service-icon {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-s);
+  margin-bottom: 18px;
+}
+
+.service-icon.webdev {
+  background: rgba(214, 40, 40, 0.12);
+  color: #D62828;
+}
+
+.service-icon.itsupport {
+  background: rgba(21, 114, 182, 0.12);
+  color: #1572B6;
+}
+
+.service-icon.networking {
+  background: rgba(27, 160, 215, 0.12);
+  color: #1BA0D7;
+}
+
+.service-icon.data {
+  background: rgba(33, 115, 70, 0.12);
+  color: #217346;
+}
+
+.service-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.service-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.service-tech-tags .tag {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+}
+
+.service-card .learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 500;
+  transition: gap var(--dur-1) var(--ease);
+}
+
+.service-card .learn-more:hover {
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="canonical" href="https://JohnChege00.github.io/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>John Chege - Web Developer in Kenya</title>
 <meta name="description" content="John Chege is a Kenyan web developer studying BSc Information Technology at Machakos University, building web systems with experience in IT support, networking and data analytics.">
-<link rel="canonical" href="https://JohnChege00.github.io/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="John Chege, Web Developer in Kenya">
@@ -19,45 +21,108 @@
 <meta name="twitter:description" content="Kenyan web developer building web systems, with experience in IT support, networking, infrastructure and data analytics.">
 <meta name="twitter:image" content="https://JohnChege00.github.io/assets/images/og-cover.png">
 
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="stylesheet" href="/assets/css/style.css">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "John Chege",
-  "url": "https://JohnChege00.github.io/",
-  "jobTitle": "Web Developer",
-  "email": "mailto:johnchegegathu99@gmail.com",
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "Machakos University"
-  },
-  "sameAs": [
-    "https://github.com/JohnChege00",
-    "https://www.linkedin.com/in/John-Chege/",
-    "https://x.com/J0hn_Chege",
-    "https://www.facebook.com/JohnChege",
-    "https://wa.me/254111671646"
-  ]
+<style>
+.project-preview-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "John Chege",
-  "url": "https://JohnChege00.github.io/"
+
+.project-preview-card .project-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  margin-bottom: 14px;
+  background: var(--white-dim);
+  position: relative;
 }
-</script>
+
+.project-preview-card .project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-preview-card:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-preview-card .project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--white-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border: 1px dashed var(--line-strong);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  z-index: 999;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 40, 40, 0.4);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--white);
+}
+
+@media (max-width: 768px) {
+  .project-preview-card .project-image-wrapper {
+    height: 160px;
+  }
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="John Chege, home">
+    <a class="brand" href="/" aria-label="John Chege, home">
       <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
         <rect width="64" height="64" fill="#14110F"/>
         <path d="M14 20 L28 32 L14 44" fill="none" stroke="#D62828" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
@@ -68,17 +133,17 @@
 
     <nav class="nav-primary" data-nav-primary aria-label="Primary">
       <ul class="nav-list">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/experience">Experience</a></li>
+        <li><a href="/#skills">Skills</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
 
     <div class="nav-cta">
-      <a class="btn btn-outline icon-only-mobile" href="contact.html">Contact Me</a>
+      <a class="btn btn-outline icon-only-mobile" href="/contact">Contact Me</a>
       <button class="nav-toggle" data-nav-toggle type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -99,12 +164,12 @@
         <p class="hero-role">Web Developer</p>
         <p class="hero-intro">I build websites and web systems, with experience across IT support, networking, infrastructure and data.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">View Projects</a>
-          <a class="btn btn-outline" href="contact.html">Contact Me</a>
+          <a class="btn btn-primary" href="/projects">View Projects</a>
+          <a class="btn btn-outline" href="/contact">Contact Me</a>
         </div>
         <div class="hero-links">
           <a href="https://github.com/JohnChege00" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a href="about.html">More about me</a>
+          <a href="/about">More about me</a>
         </div>
       </div>
 
@@ -130,28 +195,9 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="selected-projects-h">Selected Projects</h2>
-        <a class="card-link-arrow" href="projects.html">All projects &rarr;</a>
+        <a class="card-link-arrow" href="/projects">All projects &rarr;</a>
       </div>
-      <div class="project-preview-grid" data-project-preview>
-        
-        <noscript>
-          <a class="project-preview-card" href="projects.html#student-clearance-system">
-            <span class="idx">01</span>
-            <h3>Enhanced Online Student Clearance System</h3>
-            <p>Online clearance and graduation application system for a university.</p>
-          </a>
-          <a class="project-preview-card" href="projects.html#trendingbriefings">
-            <span class="idx">02</span>
-            <h3>TrendingBriefings</h3>
-            <p>A Kenyan digital publication built on a custom Node.js content stack.</p>
-          </a>
-          <a class="project-preview-card" href="projects.html#vulnerability-scanner">
-            <span class="idx">03</span>
-            <h3>Vulnerability Scanner</h3>
-            <p>A Python security scanner covering recon, secret detection and active exploit testing.</p>
-          </a>
-        </noscript>
-      </div>
+      <div class="project-preview-grid" data-project-preview></div>
     </div>
   </section>
 
@@ -161,7 +207,7 @@
         <h2 style="margin-bottom:18px">About Me</h2>
         <p>I'm a Bachelor of Science in Information Technology student at Machakos University. My main focus is web development: building sites and web applications with Node.js, Express and PostgreSQL on the back end, and clean, responsive interfaces on the front end.</p>
         <p>Alongside that, I've worked in IT support, networking and infrastructure, data analytics and digitisation of records, which shapes how I build: I think about the whole system a website sits inside, not just the page itself.</p>
-        <a class="card-link-arrow" href="about.html" style="margin-top:16px; display:inline-flex;">Read the full story &rarr;</a>
+        <a class="card-link-arrow" href="/about" style="margin-top:16px; display:inline-flex;">Read the full story &rarr;</a>
       </div>
       <dl class="fact-list">
         <div class="fact-row">
@@ -188,7 +234,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Experience</h2>
-        <a class="card-link-arrow" href="experience.html">Full experience &rarr;</a>
+        <a class="card-link-arrow" href="/experience">Full experience &rarr;</a>
       </div>
       <ol class="timeline">
         <li class="timeline-item">
@@ -218,11 +264,11 @@
         <div class="skill-group is-primary">
           <div class="skill-group-head">
             <h3>Web Development</h3>
-            <span class="skill-group-count">10 tools</span>
+            <span class="skill-group-count"></span>
           </div>
           <div class="tech-list">
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="" width="22" height="22" loading="lazy"><span>HTML5</span></div>
-            <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/css3/1572B6" alt="" width="22" height="22" loading="lazy"><span>CSS3</span></div>
+            <div class="tech-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="22" height="22"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg><span>CSS3</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" width="22" height="22" loading="lazy"><span>JavaScript</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="" width="22" height="22" loading="lazy"><span>Node.js</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/express/000000" alt="" width="22" height="22" loading="lazy"><span>Express.js</span></div>
@@ -244,58 +290,37 @@
         <div class="skill-group">
           <div class="skill-group-head">
             <h3>Data &amp; Analytics</h3>
-            <span class="skill-group-count">4</span>
+            <span class="skill-group-count"></span>
           </div>
           <div class="tech-list">
-            <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="" width="22" height="22" loading="lazy"><span>Microsoft Excel</span></div>
+            <div class="tech-item"><i class="fa-solid fa-file-excel" style="color:#217346;font-size:22px;width:22px;text-align:center"></i><span>Microsoft Excel</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="" width="22" height="22" loading="lazy"><span>Google Analytics</span></div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15v-4M12 15V9M16 15v-7"/></svg>
-              <span>Data Analysis &amp; Cleaning</span>
-            </div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M3 9h18M9 9v9"/></svg>
-              <span>Reporting &amp; Dashboards</span>
-            </div>
+            <div class="tech-item"><i class="fa-brands fa-python" style="color:#3776AB;font-size:22px;width:22px;text-align:center"></i><span>Python</span></div>
+            <div class="tech-item"><i class="fa-solid fa-chart-simple" style="color:#D62828;font-size:22px;width:22px;text-align:center"></i><span>Pandas &amp; Matplotlib</span></div>
           </div>
         </div>
 
         <div class="skill-group">
           <div class="skill-group-head">
             <h3>IT Support</h3>
-            <span class="skill-group-count">4</span>
+            <span class="skill-group-count"></span>
           </div>
           <div class="tech-list">
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
-              <span>Hardware Troubleshooting</span>
-            </div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 8v4l3 2"/></svg>
-              <span>Software Troubleshooting</span>
-            </div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg>
-              <span>User Support</span>
-            </div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg>
-              <span>Records Management</span>
-            </div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg><span>Hardware Troubleshooting</span></div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 8v4l3 2"/></svg><span>Software Troubleshooting</span></div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>User Support</span></div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg><span>Records Management</span></div>
           </div>
         </div>
 
         <div class="skill-group">
           <div class="skill-group-head">
             <h3>Networking &amp; Infrastructure</h3>
-            <span class="skill-group-count">4</span>
+            <span class="skill-group-count"></span>
           </div>
           <div class="tech-list">
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="" width="22" height="22" loading="lazy"><span>Cisco Packet Tracer</span></div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="4" rx="1"/><rect x="2" y="14" width="20" height="4" rx="1"/><path d="M6 10v4M12 10v4M18 10v4"/></svg>
-              <span>GNS3</span>
-            </div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="4" rx="1"/><rect x="2" y="14" width="20" height="4" rx="1"/><path d="M6 10v4M12 10v4M18 10v4"/></svg><span>GNS3</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/virtualbox/183A61" alt="" width="22" height="22" loading="lazy"><span>VirtualBox</span></div>
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/vmware" alt="" width="22" height="22" loading="lazy"><span>VMware</span></div>
           </div>
@@ -303,19 +328,24 @@
 
         <div class="skill-group">
           <div class="skill-group-head">
+            <h3>Security &amp; Testing</h3>
+            <span class="skill-group-count"></span>
+          </div>
+          <div class="tech-list">
+            <div class="tech-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="fill:#FF6B00"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg><span>BurpSuite Pro</span></div>
+            <div class="tech-item"><i class="fa-solid fa-shield-halved" style="color:#D62828;font-size:22px;width:22px;text-align:center"></i><span>Vulnerability Scanning</span></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-head">
             <h3>Content &amp; CMS</h3>
-            <span class="skill-group-count">3</span>
+            <span class="skill-group-count"></span>
           </div>
           <div class="tech-list">
             <div class="tech-item"><img class="tech-icon" src="https://cdn.simpleicons.org/wordpress/21759B" alt="" width="22" height="22" loading="lazy"><span>WordPress</span></div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
-              <span>Web Content Management</span>
-            </div>
-            <div class="tech-item">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-              <span>SEO Content Management</span>
-            </div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>Web Content Management</span></div>
+            <div class="tech-item"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>SEO Content Management</span></div>
           </div>
         </div>
       </div>
@@ -324,9 +354,9 @@
         <h2>Technical Stack</h2>
         <span class="section-tag">tools used across projects</span>
       </div>
-      <div class="tag-row" style="gap:10px">
+      <div class="tag-row" style="gap:10px;flex-wrap:wrap">
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="" width="16" height="16" loading="lazy">HTML5</span>
-        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="" width="16" height="16" loading="lazy">CSS3</span>
+        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="16" height="16"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg>CSS3</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" width="16" height="16" loading="lazy">JavaScript</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="" width="16" height="16" loading="lazy">Node.js</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/express/000000" alt="" width="16" height="16" loading="lazy">Express</span>
@@ -334,9 +364,11 @@
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/git/F05032" alt="" width="16" height="16" loading="lazy">Git</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/github/181717" alt="" width="16" height="16" loading="lazy">GitHub</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="" width="16" height="16" loading="lazy">WordPress</span>
-        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="" width="16" height="16" loading="lazy">Excel</span>
+        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><i class="fa-solid fa-file-excel" style="color:#217346;font-size:14px"></i>Excel</span>
+        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><i class="fa-brands fa-python" style="color:#3776AB;font-size:14px"></i>Python</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="" width="16" height="16" loading="lazy">Cisco</span>
         <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><img src="https://cdn.simpleicons.org/virtualbox/183A61" alt="" width="16" height="16" loading="lazy">VirtualBox</span>
+        <span class="tag" style="display:flex;align-items:center;gap:6px;padding:6px 10px"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:#FF6B00"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg>BurpSuite</span>
       </div>
     </div>
   </section>
@@ -364,7 +396,7 @@
               <img src="https://cdn.simpleicons.org/github/F5F3EF" alt="" width="24" height="24" loading="lazy"><span>GitHub</span>
             </a>
             <a data-social="linkedin" href="https://www.linkedin.com/in/John-Chege/" target="_blank" rel="noopener noreferrer" aria-label="John Chege on LinkedIn">
-              <img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="" width="24" height="24" loading="lazy"><span>LinkedIn</span>
+              <i class="fa-brands fa-linkedin" style="color:#0A66C2;font-size:22px;width:24px;text-align:center"></i><span>LinkedIn</span>
             </a>
             <a data-social="x" href="https://x.com/J0hn_Chege" target="_blank" rel="noopener noreferrer" aria-label="John Chege on X">
               <img src="https://cdn.simpleicons.org/x/F5F3EF" alt="" width="24" height="24" loading="lazy"><span>X</span>
@@ -379,7 +411,7 @@
         </div>
         <div class="contact-note-panel">
           <h3>Open to internships, attachments and freelance work</h3>
-          <p>I'm currently studying at Machakos University and building web projects on the side. If you have a role, internship opportunity or freelance project that needs a web developer, IT Support, Web Content Management skills, , network administration skills, reach out by email or WhatsApp and I'll get back to you.</p>
+          <p>I'm currently studying at Machakos University and building web projects on the side. If you have a role, internship opportunity or freelance project that needs a web developer, IT Support, Web Content Management skills, network administration skills, reach out by email or WhatsApp and I'll get back to you.</p>
         </div>
       </div>
     </div>
@@ -390,7 +422,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <a class="footer-brand" href="index.html">
+      <a class="footer-brand" href="/">
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
           <rect width="64" height="64" fill="#14110F"/>
           <path d="M14 20 L28 32 L14 44" fill="none" stroke="#D62828" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
@@ -398,16 +430,16 @@
         </svg>
         John Chege
       </a>
-      <p class="footer-desc">Web Developer based in Kenya, building web systems with a background in IT support, networking and data.</p>
+      <p class="footer-desc">I am open to jobs across Web Development, IT Support, Networking, and Data Analytics. <a href="/contact" style="color:#D62828;text-decoration:underline;font-weight:500;">Contact for hiring or inquiry →</a></p>
     </div>
     <div>
       <div class="footer-heading">Navigate</div>
       <nav class="footer-links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/experience">Experience</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
     <div>
@@ -415,7 +447,7 @@
       <p class="footer-desc" style="margin-bottom:14px"><a data-email href="mailto:johnchegegathu99@gmail.com" style="color:var(--white)">johnchegegathu99@gmail.com</a><br><a data-phone href="tel:+254111671646" style="color:var(--white)">0111 671 646</a></p>
       <div class="footer-social">
         <a data-social="github" href="https://github.com/JohnChege00" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/F5F3EF" alt="" width="18" height="18" loading="lazy"></a>
-        <a data-social="linkedin" href="https://www.linkedin.com/in/John-Chege/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="" width="18" height="18" loading="lazy"></a>
+        <a data-social="linkedin" href="https://www.linkedin.com/in/John-Chege/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="color:#0A66C2;font-size:18px"></i></a>
         <a data-social="x" href="https://x.com/J0hn_Chege" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://cdn.simpleicons.org/x/F5F3EF" alt="" width="18" height="18" loading="lazy"></a>
         <a data-social="facebook" href="https://www.facebook.com/JohnChege" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="18" height="18" loading="lazy"></a>
         <a data-social="whatsapp" href="https://wa.me/254111671646" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="18" height="18" loading="lazy"></a>
@@ -428,16 +460,101 @@
   </div>
 </footer>
 
-<script src="data/config.js"></script>
-<script src="data/projects.js"></script>
-<script src="assets/js/main.js"></script>
+<a href="#" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script src="/data/config.js"></script>
+<script src="/data/projects.js"></script>
+<script src="/assets/js/main.js"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    var yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    var backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    var container = document.querySelector('[data-project-preview]');
+    if (container && window.PROJECTS) {
+        var featured = window.PROJECTS.filter(function(p) { return p.featured === true; });
+        var html = '';
+        featured.forEach(function(project, index) {
+            var num = String(index + 1).padStart(2, '0');
+            var imagePath = '/assets/images/projects/' + project.slug + '.png';
+            html += '<a class="project-preview-card" href="' + project.caseStudyUrl + '">';
+            html += '<div class="project-image-wrapper">';
+            html += '<img class="project-image" src="' + imagePath + '" alt="' + project.name + '" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML=\'<div class=\\\\'project-image-placeholder\\\\'>📷 ' + project.name + '</div>\'">';
+            html += '</div>';
+            html += '<span class="idx">' + num + '</span>';
+            html += '<h3>' + project.name + '</h3>';
+            html += '<p>' + project.tagline + '</p>';
+            html += '<div class="tag-row">';
+            if (project.tags) {
+                project.tags.forEach(function(tag) {
+                    var iconMap = {
+                        "Node.js": "https://cdn.simpleicons.org/nodedotjs/339933",
+                        "Express.js": "https://cdn.simpleicons.org/express/000000",
+                        "PostgreSQL": "https://cdn.simpleicons.org/postgresql/4169E1",
+                        "EJS": "https://cdn.simpleicons.org/ejs/B4CA65",
+                        "OCR": "fa-eye",
+                        "QR Verification": "fa-qrcode",
+                        "TinyMCE": "https://cdn.simpleicons.org/tinymce/2489C8",
+                        "SEO": "fa-search",
+                        "Python": "https://cdn.simpleicons.org/python/3776AB",
+                        "SQL Injection": "fa-database",
+                        "JWT Cracking": "fa-key",
+                        "Secrets Detection": "fa-shield-alt",
+                        "BurpSuite Pro": "burpsuite",
+                        "HTML": "https://cdn.simpleicons.org/html5/E34F26",
+                        "CSS": "css3",
+                        "JavaScript": "https://cdn.simpleicons.org/javascript/F7DF1E",
+                        "Responsive Design": "fa-mobile-alt",
+                        "Microsoft Excel": "microsoftexcel",
+                        "Data Validation": "fa-check-circle",
+                        "Financial Reporting": "fa-chart-bar"
+                    };
+                    var icon = iconMap[tag] || "fa-code";
+                    
+                    if (icon === "burpsuite") {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="fill:#FF6B00"><path d="M0 0v24h24V0Zm11.063 3.357h1.874v2.756L10.41 9.2h2.527v3.748h4.579l-4.578 5.592v2.104h-1.876v-2.758l2.528-3.086h-2.527V11.05h-4.58l4.58-5.592Z"/></svg> ' + tag + '</span>';
+                    } else if (icon === "css3") {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="12" height="12"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg> ' + tag + '</span>';
+                    } else if (icon === "microsoftexcel") {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><i class="fa-solid fa-file-excel" style="color:#217346;font-size:12px"></i> ' + tag + '</span>';
+                    } else if (icon.startsWith('http')) {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><img src="' + icon + '" alt="" width="12" height="12" loading="lazy"> ' + tag + '</span>';
+                    } else if (icon.startsWith('fa-')) {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"><i class="fas ' + icon + '" style="color:#D62828;font-size:12px"></i> ' + tag + '</span>';
+                    } else {
+                        html += '<span class="tag" style="display:inline-flex;align-items:center;gap:4px"> ' + tag + '</span>';
+                    }
+                });
+            }
+            html += '</div>';
+            html += '</a>';
+        });
+        container.innerHTML = html;
+    }
+});
 </script>
+
 </body>
 </html>
