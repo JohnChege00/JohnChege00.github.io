@@ -3,14 +3,15 @@ window.PROJECTS = [
     slug: "student-clearance-system",
     name: "Enhanced Online Student Clearance System",
     tagline: "Online clearance and graduation application system for a university.",
-    tags: ["Node.js", "Express.js", "PostgreSQL", "EJS", "OCR", "QR Verification"],
+    tags: ["Node.js", "Express.js", "PostgreSQL", "EJS", "OCR", "QR Verification", "SMS & Email Notifications"],
     techIcons: {
       "Node.js": "nodedotjs",
       "Express.js": "express",
       "PostgreSQL": "postgresql",
       "EJS": "ejs",
       "OCR": "fa-eye",
-      "QR Verification": "fa-qrcode"
+      "QR Verification": "fa-qrcode",
+      "SMS & Email Notifications": "fa-bell"
     },
     techColors: {
       "Node.js": "#339933",
@@ -18,7 +19,8 @@ window.PROJECTS = [
       "PostgreSQL": "#4169E1",
       "EJS": "#B4CA65",
       "OCR": "#D62828",
-      "QR Verification": "#D62828"
+      "QR Verification": "#D62828",
+      "SMS & Email Notifications": "#D62828"
     },
     featured: true,
     github: "",
@@ -98,6 +100,30 @@ window.PROJECTS = [
     github: "",
     demo: "",
     caseStudyUrl: "/projects#vifinity"
+  },
+  {
+    slug: "murcc-graphics",
+    name: "Murcc Graphics",
+    tagline: "Portfolio and business website for a graphic designer, with a CMS backend.",
+    tags: ["Node.js", "Express.js", "EJS", "CMS", "Responsive Design"],
+    techIcons: {
+      "Node.js": "nodedotjs",
+      "Express.js": "express",
+      "EJS": "ejs",
+      "CMS": "fa-edit",
+      "Responsive Design": "fa-mobile-alt"
+    },
+    techColors: {
+      "Node.js": "#339933",
+      "Express.js": "#000000",
+      "EJS": "#B4CA65",
+      "CMS": "#D62828",
+      "Responsive Design": "#D62828"
+    },
+    featured: false,
+    github: "",
+    demo: "",
+    caseStudyUrl: "/projects#murcc-graphics"
   },
   {
     slug: "school-finance-workbook",
