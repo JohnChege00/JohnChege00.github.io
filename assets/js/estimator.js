@@ -1,11 +1,8 @@
-
 (function () {
   "use strict";
-
   var DATA = window.ESTIMATOR_PRICING;
   var form = document.querySelector("[data-estimator-form]");
   if (!form || !DATA) return;
-
   var typeList = form.querySelector("[data-type-list]");
   var addonList = form.querySelector("[data-addon-list]");
   var designList = form.querySelector("[data-design-list]");
@@ -19,12 +16,10 @@
   function formatKes(n) {
     return "KES " + Math.round(n).toLocaleString("en-KE");
   }
-
   function formatUsd(n) {
     return "~$" + Math.round(n).toLocaleString("en-US");
   }
 
-  
   DATA.siteTypes.forEach(function (type, i) {
     var id = "type-" + type.id;
     var wrap = document.createElement("label");
@@ -39,19 +34,18 @@
     typeList.appendChild(wrap);
   });
 
-  
   DATA.addons.forEach(function (addon) {
     var id = "addon-" + addon.id;
     var wrap = document.createElement("label");
     wrap.className = "estimator-check";
     wrap.setAttribute("for", id);
+    var noteHtml = addon.note ? '<span class="estimator-pages-note">' + addon.note + "</span>" : "";
     wrap.innerHTML =
       '<input type="checkbox" name="addon" id="' + id + '" value="' + addon.id + '">' +
-      '<span>' + addon.label + "</span>";
+      '<span><span>' + addon.label + "</span>" + noteHtml + "</span>";
     addonList.appendChild(wrap);
   });
 
-  
   DATA.design.forEach(function (d, i) {
     var id = "design-" + d.id;
     var wrap = document.createElement("label");
@@ -59,19 +53,17 @@
     wrap.setAttribute("for", id);
     wrap.innerHTML =
       '<input type="radio" name="design" id="' + id + '" value="' + d.id + '"' + (i === 0 ? " checked" : "") + '>' +
-      '<span>' + d.label + "</span>";
+      "<span>" + d.label + "</span>";
     designList.appendChild(wrap);
   });
 
   function calculate() {
     var typeId = form.querySelector('input[name="site-type"]:checked').value;
     var type = DATA.siteTypes.find(function (t) { return t.id === typeId; });
-
     var min = type.base.min;
     var max = type.base.max;
     var breakdown = [{ label: type.label, min: type.base.min, max: type.base.max }];
 
-    
     var pages = parseInt(pagesInput.value, 10) || DATA.basePagesIncluded;
     var extraPages = Math.max(0, pages - DATA.basePagesIncluded);
     if (extraPages > 0) {
@@ -82,7 +74,6 @@
       breakdown.push({ label: extraPages + " extra page" + (extraPages > 1 ? "s" : ""), min: pageMin, max: pageMax });
     }
 
-    
     form.querySelectorAll('input[name="addon"]:checked').forEach(function (input) {
       var addon = DATA.addons.find(function (a) { return a.id === input.value; });
       if (addon) {
@@ -92,7 +83,6 @@
       }
     });
 
-    
     var designId = form.querySelector('input[name="design"]:checked').value;
     var design = DATA.design.find(function (d) { return d.id === designId; });
     if (design && design.cost.max > 0) {
@@ -103,8 +93,7 @@
 
     resultMin.textContent = formatKes(min);
     resultMax.textContent = formatKes(max);
-    resultUsd.textContent =
-      formatUsd(min / DATA.approxUsdRate) + " - " + formatUsd(max / DATA.approxUsdRate);
+    resultUsd.textContent = formatUsd(min / DATA.approxUsdRate) + " - " + formatUsd(max / DATA.approxUsdRate);
     summaryType.textContent = type.label;
 
     breakdownList.innerHTML = breakdown
