@@ -4,14 +4,19 @@ window.ESTIMATOR_PRICING = {
   perExtraPage: { min: 1000, max: 2000 },
   siteTypes: [
     { id: "landing-page", label: "Landing Page", description: "A single focused page built to promote one product, service or event.", base: { min: 5000, max: 12000 } },
-    { id: "portfolio", label: "Portfolio / Personal Website", description: "A personal site to showcase your work, skills or CV, like this one.", base: { min: 8000, max: 18000 } },
+    { id: "portfolio", label: "Portfolio / Personal Website", description: "A personal site to showcase your work, skills or CV.", base: { min: 8000, max: 18000 } },
     { id: "small-business", label: "Small Business Website", description: "A multi-page site for a small business: services, about, contact.", base: { min: 15000, max: 35000 } },
     { id: "blog-news", label: "Blog / News Website", description: "A content-first site built around regularly published articles.", base: { min: 15000, max: 30000 } },
+    { id: "ngo", label: "NGO / Nonprofit Website", description: "A site for an NGO or nonprofit: programmes, impact stories, donations.", base: { min: 20000, max: 45000 } },
+    { id: "restaurant-hotel", label: "Restaurant / Hotel Website", description: "A site for a restaurant or hotel: menu, gallery, location, bookings.", base: { min: 15000, max: 35000 } },
+    { id: "real-estate", label: "Real Estate Website", description: "A property listings site with search and filtering.", base: { min: 25000, max: 55000 } },
+    { id: "church", label: "Church / Religious Organization Website", description: "A site for a church or religious organization: sermons, events, giving.", base: { min: 10000, max: 25000 } },
+    { id: "medical-clinic", label: "Medical / Clinic Website", description: "A site for a clinic or medical practice: services, staff, appointments.", base: { min: 20000, max: 45000 } },
     { id: "school", label: "School / Institution Website", description: "A site for a school or institution: programmes, admissions, staff, news.", base: { min: 25000, max: 50000 } },
     { id: "corporate", label: "Corporate Website", description: "A larger, brand-focused site for an established company.", base: { min: 40000, max: 90000 } },
     { id: "ecommerce", label: "E-commerce Website", description: "An online store with a product catalogue, cart and checkout.", base: { min: 25000, max: 80000 } },
     { id: "booking", label: "Booking / Reservation Website", description: "A site built around scheduling appointments, rooms or reservations.", base: { min: 25000, max: 60000 } },
-    { id: "web-app", label: "Custom Web Application", description: "A custom system built around your workflow, like a clearance or management system.", base: { min: 50000, max: 200000 } }
+    { id: "web-app", label: "Custom Web Application", description: "A custom system built around your workflow.", base: { min: 50000, max: 200000 } }
   ],
   addons: [
     { id: "cms-blog", label: "Blog / content management (CMS)", cost: { min: 5000, max: 10000 } },
