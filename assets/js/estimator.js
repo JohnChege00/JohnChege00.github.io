@@ -81,6 +81,7 @@
 
     if (type.customQuote) {
       resultMin.textContent = "Custom quote";
+      resultMax.textContent = "";
       resultMax.style.display = "none";
       amountEl.childNodes.forEach(function (n) { if (n.nodeType === 3) n.textContent = ""; });
       resultUsd.textContent = "";
