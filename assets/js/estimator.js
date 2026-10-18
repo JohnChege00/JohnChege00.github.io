@@ -13,6 +13,13 @@
   var breakdownList = form.querySelector("[data-breakdown]");
   var summaryType = form.querySelector("[data-summary-type]");
 
+  var addonEls = {};
+  var noticeEl = document.createElement("p");
+  noticeEl.className = "estimator-disclaimer";
+  noticeEl.style.display = "none";
+  resultUsd.parentNode.insertBefore(noticeEl, resultUsd.nextSibling);
+  var amountEl = resultMin.parentNode;
+
   function formatKes(n) {
     return "KES " + Math.round(n).toLocaleString("en-KE");
   }
@@ -44,6 +51,7 @@
       '<input type="checkbox" name="addon" id="' + id + '" value="' + addon.id + '">' +
       '<span><span>' + addon.label + "</span>" + noteHtml + "</span>";
     addonList.appendChild(wrap);
+    addonEls[addon.id] = wrap;
   });
 
   DATA.design.forEach(function (d, i) {
@@ -60,6 +68,29 @@
   function calculate() {
     var typeId = form.querySelector('input[name="site-type"]:checked').value;
     var type = DATA.siteTypes.find(function (t) { return t.id === typeId; });
+
+    // Show only the add-ons that apply to this site type; untick hidden ones.
+    DATA.addons.forEach(function (a) {
+      var el = addonEls[a.id];
+      var show = !type.customQuote && (!a.types || a.types.indexOf(typeId) !== -1);
+      el.style.display = show ? "" : "none";
+      if (!show) el.querySelector("input").checked = false;
+    });
+    noticeEl.textContent = type.notice || "";
+    noticeEl.style.display = type.notice ? "" : "none";
+
+    if (type.customQuote) {
+      resultMin.textContent = "Custom quote";
+      resultMax.style.display = "none";
+      amountEl.childNodes.forEach(function (n) { if (n.nodeType === 3) n.textContent = ""; });
+      resultUsd.textContent = "";
+      summaryType.textContent = type.label;
+      breakdownList.innerHTML = "";
+      return;
+    }
+    resultMax.style.display = "";
+    amountEl.childNodes.forEach(function (n) { if (n.nodeType === 3) n.textContent = " \u2013 "; });
+
     var min = type.base.min;
     var max = type.base.max;
     var breakdown = [{ label: type.label, min: type.base.min, max: type.base.max }];
